@@ -1,0 +1,74 @@
+﻿<Page x:Class="AgendaWpf.View.addCustomer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AgendaWpf.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="addCustomer">
+
+    <Grid Background="Beige">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="37*"/>
+        </Grid.RowDefinitions>
+        <!-- Titre -->
+        <Viewbox Grid.ColumnSpan="4">
+            <TextBlock Text="Ajouter un client" FontWeight="Bold" Foreground="Black" FontFamily="Trebuchet MS"/>
+        </Viewbox>
+        <!-- Nom -->
+        <Viewbox HorizontalAlignment="Right" Grid.Row="2" Width="48">
+            <Label Content="Nom" Foreground="GhostWhite" Background="Black" FontFamily="Trebuchet MS"/>
+        </Viewbox>
+        <TextBox x:Name="TextBox_Lastname" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" KeyUp="TextBox_Lastname_KeyUp" Margin="5,0,0,0"/>
+        <TextBlock x:Name="TextBlock_LastnameErrorMessage" Foreground="Crimson" Grid.Column="1" Grid.Row="3" FontWeight="Bold" VerticalAlignment="Center" Padding="10,0,0,0" FontSize="18" Height="24" Margin="5,0,30,4"/>
+        <!-- Prénom -->
+        <Viewbox Grid.Row="4" HorizontalAlignment="Right" Width="69">
+            <Label Content="Prénom" Foreground="GhostWhite" Background="Black" FontFamily="Trebuchet MS"/>
+        </Viewbox>
+        <TextBox  x:Name="TextBox_Firstname" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" KeyUp="TextBox_Firstname_KeyUp"/>
+        <TextBlock x:Name="TextBlock_FirstnameErrorMessage"  Foreground="Crimson" Grid.Column="1" Grid.Row="5" FontWeight="Bold" VerticalAlignment="Center" Padding="10,0,0,0" FontSize="18" Height="24" Margin="0,0,35,3"/>
+        <!-- Mail -->
+        <Viewbox HorizontalAlignment="Right" Grid.Row="6" Width="44" >
+            <Label Content="Mail" Foreground="GhostWhite" Background="Black" FontFamily="Trebuchet MS"/>
+        </Viewbox>
+        <TextBox x:Name="TextBox_Mail" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" KeyUp="TextBox_Mail_KeyUp"/>
+        <TextBlock x:Name="TextBlock_MailErrorMessage"  Foreground="Crimson" Grid.Column="1" Grid.Row="7" FontWeight="Bold" VerticalAlignment="Center" Padding="10,0,0,0" FontSize="18" Height="24" Margin="0,0,35,4"/>
+        <!-- Phone -->
+        <Viewbox HorizontalAlignment="Right" Grid.Row="8" Width="57">
+            <Label Content="Numero" Foreground="GhostWhite" Background="Black" Height="34" FontFamily="Trebuchet MS" FontSize="14"/>
+        </Viewbox>
+        <TextBox x:Name="TextBox_PhoneNumber" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2" KeyUp="TextBox_PhoneNumber_KeyUp"/>
+        <TextBlock x:Name="TextBlock_PhoneNumberErrorMessage"  Foreground="Crimson" Grid.Column="1" Grid.Row="9" FontWeight="Bold" VerticalAlignment="Center" Padding="10,0,0,0" FontSize="18" Height="24" Margin="0,5,35,33" Grid.RowSpan="2"/>
+        <!-- Budget -->
+        <Viewbox HorizontalAlignment="Right" Grid.Row="10" Width="65">
+            <Label Content="Budget" Foreground="GhostWhite" Background="Black" FontFamily="Trebuchet MS"/>
+        </Viewbox>
+        <TextBox  x:Name="TextBox_Budget" Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="2" KeyUp="TextBox_Budget_KeyUp"/>
+        <TextBlock x:Name="TextBlock_BudgetErrorMessage"  Foreground="Crimson" Grid.Column="1" Grid.Row="11" FontWeight="Bold" VerticalAlignment="Center" Padding="10,0,0,0" FontSize="18" Height="24" Margin="0,0,35,25" Grid.RowSpan="2"/>
+        <!-- Boutton -->
+        <Button Content="Enregistrer" Click="Button_AddCustomer_Click" FontWeight="Bold" FontSize="15" Grid.Column="1" Margin="55,0,10,0" Grid.Row="12" Background="blue"/>
+        <Button Content="Annuler" Click="Button_CancelAddCustomer_Click" Grid.Column="2" Margin="10,0,75,0" FontWeight="Bold" FontSize="15" Grid.Row="12" Background="red"/>
+        <TextBlock x:Name="TextBlock_SuccesMessage" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="14" FontWeight="Bold" VerticalAlignment="Center" FontSize="18" Height="24" Margin="0,7,0,6"/>
+    </Grid>
+</Page>

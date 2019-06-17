@@ -1,0 +1,42 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AgendaWpf.View"
+      xmlns:AgendaWpf="clr-namespace:AgendaWpf" x:Class="AgendaWpf.View.brokersList"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="brokersList" Loaded="PageListBroker_Loaded">
+    <Page.Resources>
+        <CollectionViewSource x:Key="brokersViewSource" d:DesignSource="{d:DesignInstance {x:Type AgendaWpf:brokers}, CreateList=True}"/>
+    </Page.Resources>
+    <Grid Background="Beige" DataContext="{StaticResource brokersViewSource}">
+        <TextBlock x:Name="TextBlockListBroker" HorizontalAlignment="Left" Margin="590,21,0,0" TextWrapping="Wrap" Text="Liste des courtiers" VerticalAlignment="Top" FontSize="18" Height="20" Width="150"/>
+        <Label x:Name="LabelLastName"  Content="Nom" HorizontalAlignment="Left" Margin="529,88,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="LabelFirstName" Content="Prénom" HorizontalAlignment="Left" Margin="529,152,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="LabelEmail" Content="Mail" HorizontalAlignment="Left" Margin="529,221,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.132,0" FontSize="16"/>
+        <Label x:Name="LabelPhoneNumber" Content="Numero" HorizontalAlignment="Left" Margin="529,281,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.529,1.129"/>
+        <TextBox x:Name="TextBoxLastName" Text="{Binding ElementName=brokersDataGrid, Path=SelectedItem.lastname}" HorizontalAlignment="Left" Height="23" Margin="620,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBoxFirstName" Text="{Binding ElementName=brokersDataGrid, Path=SelectedItem.firstname}" HorizontalAlignment="Left" Height="23" Margin="620,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBoxEmail" HorizontalAlignment="Left" Height="23" Margin="620,229,0,0" TextWrapping="Wrap" Text="{Binding ElementName=brokersDataGrid, Path=SelectedItem.mail}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBoxPhoneNumber" HorizontalAlignment="Left" Height="23" Margin="620,289,0,0" TextWrapping="Wrap" Text="{Binding ElementName=brokersDataGrid, Path=SelectedItem.phonenumber}" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TextBoxIdBroker" Text="{Binding ElementName=brokersDataGrid, Path=SelectedItem.idBrokers}" Visibility="Hidden"/>
+        <DataGrid x:Name="brokersDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,40,276,10" RowDetailsVisibilityMode="VisibleWhenSelected" Background="Beige">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="firstnameColumn" Width="SizeToHeader" Header="firstname" Binding="{Binding firstname}"/>
+                <DataGridTextColumn x:Name="idBrokersColumn" Width="SizeToHeader" Header="id Brokers" Binding="{Binding idBrokers}"/>
+                <DataGridTextColumn x:Name="lastnameColumn" Width="SizeToHeader" Header="lastname" Binding="{Binding lastname}"/>
+                <DataGridTextColumn x:Name="mailColumn" Width="140" Header="mail" Binding="{Binding mail}"/>
+                <DataGridTextColumn x:Name="phonenumberColumn" Width="SizeToHeader" Header="phonenumber" Binding="{Binding phonenumber}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!-- TextBox, binding qui permet lors d'un clic sur un des clients de permettre la saisie d'information dans les textboxs-->
+        <TextBlock x:Name="TextBlockErrorLastname" HorizontalAlignment="Left" Margin="650,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlockErrorFirstname" HorizontalAlignment="Left" Margin="650,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlockErrorMail" HorizontalAlignment="Left" Margin="650,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextBlockErrorPhoneNumber" HorizontalAlignment="Left" Margin="650,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="ButtonCancel" Content="Supprimer" HorizontalAlignment="Left" Margin="685,359,0,0" VerticalAlignment="Top" Width="85" Height="42" Background="#FFF75A52" Click="ButtonCancel_Click"/>
+        <Button x:Name="ButtonUpdate" Content="Modifier" HorizontalAlignment="Left" Margin="550,359,0,0" VerticalAlignment="Top" Width="90" Height="42" Background="#FF5C9FFF" Click="Update_Click"/>
+    </Grid>
+</Page>
